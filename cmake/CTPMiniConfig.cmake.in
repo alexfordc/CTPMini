@@ -1,0 +1,15 @@
+get_filename_component(CTPMini_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+if(NOT TARGET CTPMini::CTPMini)
+  include("${CTPMini_CMAKE_DIR}/CTPMiniTargets.cmake")
+endif()
+
+#=================================================================================
+# NOTE: the following code is not necessary, can be deleted in a target based system
+
+@PACKAGE_INIT@
+
+set_and_check(CTPMini_INCLUDE_DIR "@PACKAGE_CTPMini_INCLUDE_INSTALL_DIR@")
+set_and_check(CTPMini_LIBRARIES_DIR "@PACKAGE_CTPMini_LIB_INSTALL_DIR@")
+
+check_required_components(CTPMini)
